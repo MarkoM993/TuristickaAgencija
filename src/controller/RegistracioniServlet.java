@@ -30,6 +30,11 @@ public class RegistracioniServlet extends HttpServlet {
 		String userName = request.getParameter("userName"); 
 		String password = request.getParameter("password");
 		String repeatedPassword = request.getParameter("repeatedPassword");
+		
+		System.out.println("Dobrodosao " + userName);
+		System.out.println("Tvoj pass je: " + password);
+		System.out.println("Ponovio si " + repeatedPassword);
+
 
 	}
 
