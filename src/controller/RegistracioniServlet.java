@@ -26,7 +26,11 @@ public class RegistracioniServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//preuzimanje parametara sa forme (iz URL-a)
+		String userName = request.getParameter("userName"); 
+		String password = request.getParameter("password");
+		String repeatedPassword = request.getParameter("repeatedPassword");
+
 	}
 
 	/**
