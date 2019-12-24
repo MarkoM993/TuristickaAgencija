@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.RegistracioniService;
+
 /**
  * Servlet implementation class RegistracioniServlet
  */
@@ -27,13 +29,7 @@ public class RegistracioniServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//preuzimanje parametara sa forme (iz URL-a)
-		String userName = request.getParameter("userName"); 
-		String password = request.getParameter("password");
-		String repeatedPassword = request.getParameter("repeatedPassword");
 		
-		System.out.println("Dobrodosao " + userName);
-		System.out.println("Tvoj pass je: " + password);
-		System.out.println("Ponovio si " + repeatedPassword);
 
 
 	}
@@ -43,6 +39,26 @@ public class RegistracioniServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String userName = request.getParameter("userName"); 
+		String password = request.getParameter("password");
+		String repeatedPassword = request.getParameter("repeatedPassword");
+		
+		System.out.println("Dobrodosao " + userName);
+		System.out.println("Tvoj pass je: " + password);
+		System.out.println("Ponovio si " + repeatedPassword);
+		
+		//povezivanje sa servisom
+		RegistracioniService service = new RegistracioniService();
+		
+		boolean proveraPassworda = service.daLiSuIstiPasswordi(password, repeatedPassword);
+		
+		if(proveraPassworda) {
+			//idi na index stranu
+			response.sendRedirect("index.html");
+		}else {
+			//idi na registracionu formu ponovo
+			response.sendRedirect("htmlFajlovi/registracija.html");
+		}
 	}
 
 }
