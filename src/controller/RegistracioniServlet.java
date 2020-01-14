@@ -53,8 +53,18 @@ public class RegistracioniServlet extends HttpServlet {
 		boolean proveraPassworda = service.daLiSuIstiPasswordi(password, repeatedPassword);
 		
 		if(proveraPassworda) {
-			//idi na index stranu
-			response.sendRedirect("index.html");
+			//upisivanje usera u bazu
+			boolean daLiJeUpisaoUseraUbazu = service.upisiUseraUBazu(userName, password);
+			
+			if(daLiJeUpisaoUseraUbazu) {
+				//idi na stranicu za uspesnu registraciju
+				response.sendRedirect("htmlFajlovi/uspesnaRegistracija.html");
+			}else {
+				//idi na registracionu formu ponovo
+				response.sendRedirect("htmlFajlovi/registracija.html");
+
+			}
+			
 		}else {
 			//idi na registracionu formu ponovo
 			response.sendRedirect("htmlFajlovi/registracija.html");
