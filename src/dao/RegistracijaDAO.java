@@ -10,11 +10,9 @@ public class RegistracijaDAO {
 
 	SessionFactory factory = new Configuration().configure().buildSessionFactory();
 	
-	public boolean upisiUseraUBazu(String userName, String password) {
+	public boolean upisiUseraUBazu(User user) {
 		
-		User user = new User();
-			user.setUserName(userName);
-			user.setPassword(password);
+		
 		Session sesija = factory.openSession();
 			sesija.beginTransaction();
 		try {
