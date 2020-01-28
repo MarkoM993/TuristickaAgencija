@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.User;
 import service.LoginService;
@@ -24,9 +25,23 @@ public class LoginServlet extends HttpServlet {
 		
 		LoginService service = new LoginService();
 		
+		//vracamo usera iz baze
 		User loginUser = service.vratiUseraLogin(userName,password);
+		//pravim session object
+		HttpSession session = request.getSession();
+		//smestam usera u sesiju
+		session.setAttribute("userIzBaze", loginUser );
+		
 		
 		if(loginUser != null) {
+			
+			boolean daLiJeAdmin = service.daLiJeAdmin(loginUser);
+			
+			if(daLiJeAdmin) {
+				response.sendRedirect("view/adminPage.jsp");
+			}else {
+				response.sendRedirect("view/userPage.jsp");
+			}
 			
 		}else {
 			response.sendRedirect("htmlFajlovi/login.html");
