@@ -10,7 +10,7 @@
 <body>
 
 	<%
-	User user =(User) session.getAttribute("userIzBaze");
+	User user =(User)session.getAttribute("userIzBaze");
 	%>
 
 	<h1>Hellooo <%=user.getUserName() %></h1>
