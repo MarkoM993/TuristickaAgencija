@@ -41,6 +41,25 @@
 	<%
 		}
 	%>
+	
+	<table border="1">
+		<tr>
+			<th>BROJ</th>
+			<th>NESTO</th>
+		</tr>
+		
+		<%	for(int i = 0; i<=zbir;i++){ %>
+			<tr>
+				<td><%=i %></td>
+				<td><%=zbir-i %></td>
+			</tr>
+		<%} %>	
+	</table>
+	
+	<a href="../SviUseriServlet">
+	<img src="../slike/globus2.jpg">
+	</a>
+	
 
 
 </body>
