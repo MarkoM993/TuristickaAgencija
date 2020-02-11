@@ -6,10 +6,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>adminova strana</title>
-<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link rel="stylesheet" 
+	type="text/css" 
+	href="../css/style.css" />
 </head>
 <body>
-	<div id="plavaCrta">LOGO</div>
+	<div id="plavaCrta">
+	LOGO
+	</div>
+	
 	<%
 		User user = (User) session.getAttribute("userIzBaze");
 	%>
@@ -56,9 +61,26 @@
 		<%} %>	
 	</table>
 	
-	<a href="../SviUseriServlet">
-	<img src="../slike/globus2.jpg">
+	<div >
+	<a href = "../SviUseriServlet"> 
+		<img src="../slike/globus.jpg">
 	</a>
+	</div>
+	<br>
+	<br>
+	<br>
+	<div>
+	<a href = "dodajDestinaciju.jsp"> 
+		<button >DODAJ DESTINACIJU</button>
+	</a>
+	
+	<a href = "../ListaDestinacijaServlet"> 
+		<button >DODAJ TRANSPORT</button>
+	</a>
+	</div>
+	
+	
+	
 	
 
 
