@@ -63,7 +63,7 @@
 	
 	<div >
 	<a href = "../SviUseriServlet"> 
-		<img src="../slike/globus.jpg">
+		<img src="../slike/globus3.jpg">
 	</a>
 	</div>
 	<br>
