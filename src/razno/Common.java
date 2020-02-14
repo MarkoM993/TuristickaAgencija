@@ -2,6 +2,8 @@ package razno;
 
 import model.Admin;
 import model.Rola;
+import model.TipTransporta;
+import model.Transport;
 import model.User;
 
 public class Common {
@@ -23,6 +25,21 @@ public class Common {
 		}
 		
 		return user;
+	}
+
+	public void podesiTipTransporta(Transport transport, String tipPrevoza) {
+		
+		
+		if(tipPrevoza.equals("avio")) {
+		transport.setTipTransporta(TipTransporta.AVION);
+	}else if(tipPrevoza.equals("autobus")) {
+		transport.setTipTransporta(TipTransporta.AUTOBUS);						
+	}else if(tipPrevoza.equals("voz")) {
+		transport.setTipTransporta(TipTransporta.VOZ);						
+	}else {
+		transport.setTipTransporta(TipTransporta.SOPSTVENI);
+	}
+		
 	}
 	
 	
