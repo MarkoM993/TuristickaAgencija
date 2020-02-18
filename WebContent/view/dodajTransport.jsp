@@ -15,10 +15,7 @@
 
 	<%
 		List<Destinacija> lista = (List<Destinacija>) request.getAttribute("listaDestinacija");
-	
-		request.setAttribute("listaDestinacija2", lista); 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("DodajTransportServlet");
-		dispatcher.forward(request, response);
+
 	%>
 
 	<!-- 	ovo je forma za dodavanje transporta -->

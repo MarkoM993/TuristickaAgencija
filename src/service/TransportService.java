@@ -22,4 +22,13 @@ public class TransportService {
 		
 	}
 
+	public Destinacija vratiDestinacijuPoID(String idDestinacija) {		
+		return dao.vratiDestinacijuPoID(idDestinacija);
+	}
+
+	public boolean snimiTransport(Transport transport) {
+		return dao.snimiTransport(transport);
+		
+	}
+
 }

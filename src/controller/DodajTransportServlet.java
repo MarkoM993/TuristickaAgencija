@@ -40,19 +40,28 @@ public class DodajTransportServlet extends HttpServlet {
 		if(cena!=null) {
 		transport.setCena(Double.parseDouble(cena));
 		}
-		if(popust!=null) {
+		if(!(popust.trim()).isEmpty()) {
 			transport.setPopust(Double.parseDouble(popust));
 		}else {
 			transport.setPopust(0.0);
 		}
 		
 		if(tipPrevoza!=null) {
-			servis.podesiTipTransporta(transport, tipPrevoza);
-			
+			servis.podesiTipTransporta(transport, tipPrevoza);			
 		}
 		
-		List<Destinacija> lista = (List<Destinacija>)request.getAttribute("listaDestinacija2");
-		System.out.println("Id prve destinacije: " + lista.get(0).getIdDestinacija());
+		
+		Destinacija destinacija = servis.vratiDestinacijuPoID(idDestinacija);
+		
+		transport.setDestinacija(destinacija);
+		
+		boolean daLiJeUbacioTransport = servis.snimiTransport(transport);
+		
+		if(daLiJeUbacioTransport) {
+			response.sendRedirect("view/adminPage.jsp");
+		}else {
+			response.sendRedirect("view/dodajTransport.jsp");
+		}
 	}
 
 }
