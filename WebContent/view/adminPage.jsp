@@ -1,6 +1,9 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="model.User"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,12 +19,12 @@
 	</div>
 	
 	<%
-		User user = (User) session.getAttribute("userIzBaze");
+	//	User user = (User) session.getAttribute("user");
 	%>
+	
+	<jsp:useBean id="user" scope="session" class="model.User"></jsp:useBean>
 
-	<h1>
-		Hellooo
-		<%=user.getUserName()%></h1>
+	<h1>Hellooo ${user.userName}</h1>
 
 	<%
 		int x = 1;
@@ -53,12 +56,14 @@
 			<th>NESTO</th>
 		</tr>
 		
-		<%	for(int i = 0; i<=zbir;i++){ %>
+		
+		<c:forEach begin="0" end="${zbir}" var="i" >
 			<tr>
-				<td><%=i %></td>
-				<td><%=zbir-i %></td>
+				<td>"${i}"</td>
+				<td>${zbir-i}</td>
 			</tr>
-		<%} %>	
+			</c:forEach>
+		
 	</table>
 	
 	<div >
