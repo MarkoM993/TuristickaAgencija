@@ -25,11 +25,8 @@ public class TransportDAO {
 
 		try {
 			
-			String sql = "FROM Destinacija";
-			
-			Query query = session.createQuery(sql);
-			
-			destinacije = query.getResultList();
+			destinacije = session.createQuery("FROM Destinacija").getResultList();
+
 			
 			session.getTransaction().commit();
 			return destinacije;
@@ -53,7 +50,8 @@ public class TransportDAO {
 		// moze da se resi i sa metodom getSingleResult, i ona daje jedan rezultat obrade upita
 		destinacija = (Destinacija)session.createQuery("FROM Destinacija WHERE idDestinacija = :id").setParameter("id",id).getResultList().get(0);
 		
-		
+		session.getTransaction().commit();
+
 		return destinacija;
 	} catch (Exception e) {
 		session.getTransaction().rollback();

@@ -27,10 +27,14 @@
 	<h1>Hellooo ${user.userName}</h1>
 
 	<%
-		int x = 1;
-		int y = 2;
+		int x = 6;
+		int y = 7;
 		int zbir = x + y;
 	%>
+	<c:set var="x" value="6"/>
+	<c:set var="y" value="7"/>
+	<c:set var="zbir" value="${x} + ${y}"/>
+	
 
 	<p>
 		Moj omiljeni zbir brojeva je:
@@ -57,10 +61,10 @@
 		</tr>
 		
 		
-		<c:forEach begin="0" end="${zbir}" var="i" >
+		<c:forEach begin="0" end="13" var="i" >
 			<tr>
 				<td>"${i}"</td>
-				<td>${zbir-i}</td>
+				<td>${-i}</td>
 			</tr>
 			</c:forEach>
 		
