@@ -40,7 +40,7 @@ public class DodajBalanceServlet extends HttpServlet {
 		boolean daLiSiDodaoBalans = servis.dodajBalance(idUser, addBalance);
 		
 		if(daLiSiDodaoBalans) {
-			response.sendRedirect("view/sviUseri.jsp");
+			response.sendRedirect("view/adminPage.jsp");
 		}else {
 			response.sendRedirect("view/dodajBalance.jsp");
 		}
