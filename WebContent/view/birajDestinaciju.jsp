@@ -21,7 +21,7 @@
 		</div>
 		
 <!-- 		preuzimanje liste iz request objecta -->		
- <jsp:useBean id="destinacije" scope="request" class="java.util.ArrayList" type="model.Destinacija"></jsp:useBean>
+ <jsp:useBean id="destinacije" scope="request" type="java.util.List<model.Destinacija>"></jsp:useBean>
 
  
  <table border="1">
@@ -31,14 +31,22 @@
  		<th>SMESTAJ</th>
  		<th>POPUST</th>
  		<th>CENA</th>
+ 		<th>ODABERI</th>
  	</tr>
- 	<c:forEach var="d" items="destinacije">
+ 	<c:forEach var="d" items="${destinacije}">
  	<tr>
  		<td>${d.drzava}</td>
  		<td>${d.mesto}</td>
  		<td>${d.smestaj}</td>
  		<td>${d.popust}</td>
  		<td>${d.cenaSmestaja}</td>
+ 		<td>
+				<c:url var = "link" value = "/view/izaberiOstalo.jsp">
+					<c:param name ="id"	value="${d.idDestinacija}"/>
+				</c:url>">
+				
+				<a href = "${link}"> izaberi</a>			
+				</td>
  	</tr>
  	 </c:forEach>
  </table>
